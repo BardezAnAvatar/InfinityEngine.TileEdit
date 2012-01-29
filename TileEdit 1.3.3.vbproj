@@ -1,49 +1,126 @@
-Type=Exe
-Reference=*\G{00020430-0000-0000-C000-000000000046}#2.0#0#..\..\..\..\..\..\WINNT\System32\stdole2.tlb#OLE Automation
-Reference=*\G{00025E01-0000-0000-C000-000000000046}#4.0#0#..\..\..\..\..\..\Program Files\Common Files\Microsoft Shared\DAO\DAO350.DLL#Microsoft DAO 3.51 Object Library
-Object={F9043C88-F6F2-101A-A3C9-08002B2F49FB}#1.2#0; COMDLG32.OCX
-Object={3B7C8863-D78F-101B-B9B5-04021C009402}#1.2#0; RICHTX32.OCX
-Form=TileEdit1.3.3.frm
-Form=frmAdvancedTile.frm
-Module=Module1; Module1.bas
-IconForm="frmTileEdit"
-Startup="frmTileEdit"
-HelpFile=""
-Title="TileEdit 1.47"
-ExeName32="TileEdit 1.47.exe"
-Path32="D:\Forgotten Realms\Tools\TileEdit"
-Command32=""
-Name="TileEdit"
-HelpContextID="0"
-Description="Edits TIS tiles"
-CompatibleMode="0"
-MajorVer=1
-MinorVer=4
-RevisionVer=8
-AutoIncrementVer=1
-ServerSupportFiles=0
-VersionComments="The tile-by-tile TIS editor"
-VersionCompanyName="SyNDiCaTE"
-VersionFileDescription="Edit the shit out of TIS files"
-VersionLegalCopyright="Copyright? HAHAHAAHA!!!! Bardez 0wnes your ass if you even think of redistributing it!!! HAHAAHA!!! Tool that is useful for nothing!!!!"
-VersionLegalTrademarks="Guardian: "Go Away!""
-VersionProductName="TileEdit 1.45"
-CompilationType=-1
-OptimizationType=2
-FavorPentiumPro(tm)=0
-CodeViewDebugInfo=0
-NoAliasing=0
-BoundsCheck=0
-OverflowCheck=0
-FlPointCheck=0
-FDIVCheck=0
-UnroundedFP=0
-StartMode=0
-Unattended=0
-Retained=0
-ThreadPerObject=0
-MaxNumberOfThreads=1
-DebugStartupOption=0
-
-[MS Transaction Server]
-AutoRefresh=1
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <MyType>WindowsForms</MyType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{728AB87F-F068-48E7-8598-9A1DB2B47AE2}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <AssemblyName>TileEdit</AssemblyName>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>TileEdit.frmTileEdit</StartupObject>
+    <AssemblyMajorVersion>1</AssemblyMajorVersion>
+    <AssemblyMinorVersion>4</AssemblyMinorVersion>
+    <AssemblyRevisionNumber>8</AssemblyRevisionNumber>
+    <GenerateRevisionNumber>True</GenerateRevisionNumber>
+    <AssemblyCompanyName>SyNDiCaTE</AssemblyCompanyName>
+    <StartWithIE>False</StartWithIE>
+    <ApplicationIcon>TileEdit 1.3.3.ico</ApplicationIcon>
+    <RootNamespace>TileEdit</RootNamespace>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>.\bin\</OutputPath>
+    <DocumentationFile>TileEdit.xml</DocumentationFile>
+    <DebugSymbols>True</DebugSymbols>
+    <DefineDebug>True</DefineDebug>
+    <DefineTrace>True</DefineTrace>
+    <DefineConstants>Win32=True</DefineConstants>
+    <PlatformTarget>x86</PlatformTarget>
+    <NoWarn>42016,42017,42018,42019,42032</NoWarn>
+    <DebugType>full</DebugType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>.\bin\</OutputPath>
+    <DocumentationFile>TileEdit.xml</DocumentationFile>
+    <DebugSymbols>False</DebugSymbols>
+    <DefineDebug>False</DefineDebug>
+    <DefineTrace>True</DefineTrace>
+    <DefineConstants>Win32=True</DefineConstants>
+    <PlatformTarget>x86</PlatformTarget>
+    <NoWarn>42016,42017,42018,42019,42032</NoWarn>
+    <DebugType>none</DebugType>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic.Compatibility">
+      <Name>Microsoft.VisualBasic.Compatibility</Name>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Drawing">
+      <Name>System.Drawing</Name>
+    </Reference>
+    <Reference Include="System.Windows.Forms">
+      <Name>System.Windows.Forms</Name>
+    </Reference>
+    <Reference Include="System.XML">
+      <Name>System.XML</Name>
+    </Reference>
+    <COMReference Include="DAO">
+      <Guid>{00025E01-0000-0000-C000-000000000046}</Guid>
+      <Lcid>0</Lcid>
+      <VersionMajor>4</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <WrapperTool>tlbimp</WrapperTool>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="Microsoft.VisualBasic.Compatibility" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Data" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.vb" />
+    <Compile Include="frmAdvancedTile.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>frmAdvancedTile.vb</DependentUpon>
+    </Compile>
+    <Compile Include="frmAdvancedTile.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Module1.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="TileEdit1.3.3.Designer.vb">
+      <SubType>Code</SubType>
+      <DependentUpon>TileEdit1.3.3.vb</DependentUpon>
+    </Compile>
+    <Compile Include="TileEdit1.3.3.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UpgradeSupport.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <EmbeddedResource Include="frmAdvancedTile.resX">
+      <DependentUpon>frmAdvancedTile.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TileEdit1.3.3.resX">
+      <DependentUpon>TileEdit1.3.3.vb</DependentUpon>
+    </EmbeddedResource>
+    <Content Include="TileEdit 1.3.3.ico" />
+    <None Include="_UpgradeReport.htm">
+      <SubType>Preview</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="My Project\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.VisualBasic.targets" />
+  <PropertyGroup>
+    <PreBuildEvent>
+    </PreBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
+  </PropertyGroup>
+</Project>
