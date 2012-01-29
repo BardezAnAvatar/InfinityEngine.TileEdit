@@ -7,7 +7,7 @@ Begin VB.Form frmTileEdit
    ClientLeft      =   60
    ClientTop       =   345
    ClientWidth     =   2430
-   Icon            =   "TileEdit1.3.frx":0000
+   Icon            =   "TileEdit1.3.3.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   577
    ScaleMode       =   3  'Pixel
@@ -41,7 +41,7 @@ Begin VB.Form frmTileEdit
       Begin VB.CommandButton cmdBitmapSave 
          Height          =   375
          Left            =   1560
-         Picture         =   "TileEdit1.3.frx":030A
+         Picture         =   "TileEdit1.3.3.frx":030A
          Style           =   1  'Graphical
          TabIndex        =   10
          Top             =   240
@@ -51,7 +51,7 @@ Begin VB.Form frmTileEdit
       Begin VB.CommandButton cmdOpenTile 
          Height          =   375
          Left            =   360
-         Picture         =   "TileEdit1.3.frx":073C
+         Picture         =   "TileEdit1.3.3.frx":073C
          Style           =   1  'Graphical
          TabIndex        =   9
          Top             =   240
@@ -80,7 +80,7 @@ Begin VB.Form frmTileEdit
       Begin VB.CommandButton cmdSave 
          Height          =   375
          Left            =   120
-         Picture         =   "TileEdit1.3.frx":0B6E
+         Picture         =   "TileEdit1.3.3.frx":0B6E
          Style           =   1  'Graphical
          TabIndex        =   6
          Top             =   1320
@@ -128,7 +128,7 @@ Begin VB.Form frmTileEdit
       Begin VB.CommandButton cmdopen 
          Height          =   375
          Left            =   120
-         Picture         =   "TileEdit1.3.frx":0FA0
+         Picture         =   "TileEdit1.3.3.frx":0FA0
          Style           =   1  'Graphical
          TabIndex        =   0
          Top             =   240
@@ -176,6 +176,261 @@ End Sub
 
 Private Sub cmdCompile_Click()
     BlockInput True
+RGB002 = 0
+RGB003 = 0
+RGB004 = 0
+RGB005 = 0
+RGB006 = 0
+RGB007 = 0
+RGB008 = 0
+RGB009 = 0
+RGB010 = 0
+RGB011 = 0
+RGB012 = 0
+RGB013 = 0
+RGB014 = 0
+RGB015 = 0
+RGB016 = 0
+RGB017 = 0
+RGB018 = 0
+RGB019 = 0
+RGB020 = 0
+RGB021 = 0
+RGB022 = 0
+RGB023 = 0
+RGB024 = 0
+RGB025 = 0
+RGB026 = 0
+RGB027 = 0
+RGB028 = 0
+RGB029 = 0
+RGB030 = 0
+RGB031 = 0
+RGB032 = 0
+RGB033 = 0
+RGB034 = 0
+RGB035 = 0
+RGB036 = 0
+RGB037 = 0
+RGB038 = 0
+RGB039 = 0
+RGB040 = 0
+RGB041 = 0
+RGB042 = 0
+RGB043 = 0
+RGB044 = 0
+RGB045 = 0
+RGB046 = 0
+RGB047 = 0
+RGB048 = 0
+RGB049 = 0
+RGB050 = 0
+RGB051 = 0
+RGB052 = 0
+RGB053 = 0
+RGB054 = 0
+RGB055 = 0
+RGB056 = 0
+RGB057 = 0
+RGB058 = 0
+RGB059 = 0
+RGB060 = 0
+RGB061 = 0
+RGB062 = 0
+RGB063 = 0
+RGB064 = 0
+RGB065 = 0
+RGB066 = 0
+RGB067 = 0
+RGB068 = 0
+RGB069 = 0
+RGB070 = 0
+RGB071 = 0
+RGB072 = 0
+RGB073 = 0
+RGB074 = 0
+RGB075 = 0
+RGB076 = 0
+RGB077 = 0
+RGB078 = 0
+RGB079 = 0
+RGB080 = 0
+RGB081 = 0
+RGB082 = 0
+RGB083 = 0
+RGB084 = 0
+RGB085 = 0
+RGB086 = 0
+RGB087 = 0
+RGB088 = 0
+RGB089 = 0
+RGB090 = 0
+RGB091 = 0
+RGB092 = 0
+RGB093 = 0
+RGB094 = 0
+RGB095 = 0
+RGB096 = 0
+RGB097 = 0
+RGB098 = 0
+RGB099 = 0
+RGB100 = 0
+RGB101 = 0
+RGB102 = 0
+RGB103 = 0
+RGB104 = 0
+RGB105 = 0
+RGB106 = 0
+RGB107 = 0
+RGB108 = 0
+RGB109 = 0
+RGB110 = 0
+RGB111 = 0
+RGB112 = 0
+RGB113 = 0
+RGB114 = 0
+RGB115 = 0
+RGB116 = 0
+RGB117 = 0
+RGB118 = 0
+RGB119 = 0
+RGB120 = 0
+RGB121 = 0
+RGB122 = 0
+RGB123 = 0
+RGB124 = 0
+RGB125 = 0
+RGB126 = 0
+RGB127 = 0
+RGB128 = 0
+RGB129 = 0
+RGB130 = 0
+RGB131 = 0
+RGB132 = 0
+RGB133 = 0
+RGB134 = 0
+RGB135 = 0
+RGB136 = 0
+RGB137 = 0
+RGB138 = 0
+RGB139 = 0
+RGB140 = 0
+RGB141 = 0
+RGB142 = 0
+RGB143 = 0
+RGB144 = 0
+RGB145 = 0
+RGB146 = 0
+RGB147 = 0
+RGB148 = 0
+RGB149 = 0
+RGB150 = 0
+RGB151 = 0
+RGB152 = 0
+RGB153 = 0
+RGB154 = 0
+RGB155 = 0
+RGB156 = 0
+RGB157 = 0
+RGB158 = 0
+RGB159 = 0
+RGB160 = 0
+RGB161 = 0
+RGB162 = 0
+RGB163 = 0
+RGB164 = 0
+RGB165 = 0
+RGB166 = 0
+RGB167 = 0
+RGB168 = 0
+RGB169 = 0
+RGB170 = 0
+RGB171 = 0
+RGB172 = 0
+RGB173 = 0
+RGB174 = 0
+RGB175 = 0
+RGB176 = 0
+RGB177 = 0
+RGB178 = 0
+RGB179 = 0
+RGB180 = 0
+RGB181 = 0
+RGB182 = 0
+RGB183 = 0
+RGB184 = 0
+RGB185 = 0
+RGB186 = 0
+RGB187 = 0
+RGB188 = 0
+RGB189 = 0
+RGB190 = 0
+RGB191 = 0
+RGB192 = 0
+RGB193 = 0
+RGB194 = 0
+RGB195 = 0
+RGB196 = 0
+RGB197 = 0
+RGB198 = 0
+RGB199 = 0
+RGB200 = 0
+RGB201 = 0
+RGB202 = 0
+RGB203 = 0
+RGB204 = 0
+RGB205 = 0
+RGB206 = 0
+RGB207 = 0
+RGB208 = 0
+RGB209 = 0
+RGB210 = 0
+RGB211 = 0
+RGB212 = 0
+RGB213 = 0
+RGB214 = 0
+RGB215 = 0
+RGB216 = 0
+RGB217 = 0
+RGB218 = 0
+RGB219 = 0
+RGB220 = 0
+RGB221 = 0
+RGB222 = 0
+RGB223 = 0
+RGB224 = 0
+RGB225 = 0
+RGB226 = 0
+RGB227 = 0
+RGB228 = 0
+RGB229 = 0
+RGB230 = 0
+RGB231 = 0
+RGB232 = 0
+RGB233 = 0
+RGB234 = 0
+RGB235 = 0
+RGB236 = 0
+RGB237 = 0
+RGB238 = 0
+RGB239 = 0
+RGB240 = 0
+RGB241 = 0
+RGB242 = 0
+RGB243 = 0
+RGB244 = 0
+RGB245 = 0
+RGB246 = 0
+RGB247 = 0
+RGB248 = 0
+RGB249 = 0
+RGB250 = 0
+RGB251 = 0
+RGB252 = 0
+RGB253 = 0
+RGB254 = 0
+RGB255 = 0
+RGB256 = 0
 
   X = Picture1.ScaleWidth
     Y = Picture1.ScaleHeight
@@ -202,11 +457,6 @@ Next
 
 Call ReallyRitePallette
 
-
-
-
-
-
 Picture1.Refresh
 cmdSave.Visible = True
     BlockInput False
@@ -220,11 +470,11 @@ On Error Resume Next
     With cdgDialog
         .CancelError = True
         .Filter = "Bitmaps (.bmp);JPEGs (.jpg)"
-        .Filename = "*.bmp;*.jpg;*.jpeg"
+        .FileName = "*.bmp;*.jpg;*.jpeg"
         .ShowOpen
         If Err.Number = 0 Then
-            If .Filename <> vbNullString Then
-                Picture1.Picture = LoadPicture(cdgDialog.Filename)
+            If .FileName <> vbNullString Then
+                Picture1.Picture = LoadPicture(cdgDialog.FileName)
             End If
         End If
     End With
@@ -246,11 +496,11 @@ On Error Resume Next
     With cdgDialog
         .CancelError = True
         .Filter = "Infinity Engine tiles (*.IEt)"
-        .Filename = "*.IEt"
+        .FileName = "*.IEt"
         .ShowOpen
         If Err.Number = 0 Then
-            If .Filename <> vbNullString Then
-                BMPLocation = cdgDialog.Filename
+            If .FileName <> vbNullString Then
+                BMPLocation = cdgDialog.FileName
                 picOpenedTile.Picture = LoadPicture(App.Path & "\blank.bmp")
             End If
         End If
@@ -265,37 +515,18 @@ On Error Resume Next
     With cdgDialog
         .CancelError = True
         .Filter = "Infinity Engine Tiles (*.IEt)"
-        .Filename = "*.IEt"
+        .FileName = "*.IEt"
         .ShowSave
             If Err.Number = 0 Then
-            If .Filename <> vbNullString Then
+            If .FileName <> vbNullString Then
             End If
         End If
 
     End With
-LocationLocationLocation = cdgDialog.Filename
+LocationLocationLocation = cdgDialog.FileName
 Call WriteTile
 End Sub
 
-Private Sub SaveTextFile(ByVal Filename As String)
-Dim strArray()          As String
-Dim intFreeFile         As Integer
-Dim lngIndex            As Long
-    Me.MousePointer = vbHourglass
-    DoEvents
-    If LCase(Right(Filename, 4)) <> ".ti" Then
-        Filename = Filename & ".ti"
-    End If
-    strArray = Split(Text1.Text, vbCrLf)
-    intFreeFile = FreeFile
-    Open Filename For Output As #intFreeFile
-    For lngIndex = LBound(strArray) To UBound(strArray)
-        Print #1, strArray(lngIndex)
-    Next lngIndex
-    Close #intFreeFile
-    Me.MousePointer = vbDefault
-    DoEvents
-End Sub
 
 Public Sub WritePallette()
 
@@ -1083,11 +1314,9 @@ End If
 
 End Sub
 
-
 Public Sub ReallyRitePallette()
 
 Dim temp As Byte
-
 
 'Kill "h:\temp\temp.tmp"
 
@@ -4216,10 +4445,10 @@ Dim temp As String
 
 Open LocationLocationLocation For Binary As #1
 
-Dim dump As Long
+Dim Dump As Long
 countZ = 1024 + 1
-For dump = 1 To 1024
-    Put #1, dump, FileDump(dump - 1)
+For Dump = 1 To 1024
+    Put #1, Dump, FileDump(Dump - 1)
 Next
 
 For count = 0 To 4095
@@ -4786,11 +5015,7 @@ i = 0
                     MsgBox "DONE"
                     Exit Sub
                 End If
-
             Next
-
-
-
 End Sub
 
 Private Sub cmdBitmapSave_Click()
@@ -4798,15 +5023,15 @@ On Error Resume Next
     With cdgDialog
         .CancelError = True
         .Filter = "Bitmap (*.bmp)"
-        .Filename = "*.bmp"
+        .FileName = "*.bmp"
         .ShowSave
             If Err.Number = 0 Then
-            If .Filename <> vbNullString Then
+            If .FileName <> vbNullString Then
             End If
         End If
 
     End With
 
-SavePicture picOpenedTile.Image, cdgDialog.Filename
+SavePicture picOpenedTile.Image, cdgDialog.FileName
 End Sub
 

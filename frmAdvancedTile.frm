@@ -5,10 +5,11 @@ Begin VB.Form frmAdvancedTile
    ClientHeight    =   7155
    ClientLeft      =   60
    ClientTop       =   345
-   ClientWidth     =   2655
+   ClientWidth     =   2775
+   Icon            =   "frmAdvancedTile.frx":0000
    LinkTopic       =   "Form1"
    ScaleHeight     =   7155
-   ScaleWidth      =   2655
+   ScaleWidth      =   2775
    StartUpPosition =   2  'CenterScreen
    Begin VB.CommandButton cmdBasicTraining 
       Caption         =   "Basic Mode"
@@ -25,7 +26,7 @@ Begin VB.Form frmAdvancedTile
       Left            =   120
       TabIndex        =   10
       Top             =   6120
-      Width           =   2415
+      Width           =   2535
    End
    Begin VB.CheckBox chkHeader 
       Caption         =   "TIS has header"
@@ -41,7 +42,16 @@ Begin VB.Form frmAdvancedTile
       Left            =   0
       TabIndex        =   0
       Top             =   0
-      Width           =   2655
+      Width           =   2775
+      Begin VB.CommandButton cmdNewTile 
+         Caption         =   "Create New Tile"
+         Height          =   855
+         Left            =   120
+         TabIndex        =   14
+         Top             =   4680
+         Visible         =   0   'False
+         Width           =   2535
+      End
       Begin VB.PictureBox picOpenedTile 
          AutoRedraw      =   -1  'True
          AutoSize        =   -1  'True
@@ -57,79 +67,79 @@ Begin VB.Form frmAdvancedTile
       End
       Begin VB.ComboBox cboTileListSet 
          Height          =   315
-         ItemData        =   "frmAdvancedTile.frx":0000
+         ItemData        =   "frmAdvancedTile.frx":030A
          Left            =   1320
-         List            =   "frmAdvancedTile.frx":0002
+         List            =   "frmAdvancedTile.frx":030C
          TabIndex        =   12
          Text            =   "Tile List"
          Top             =   4200
          Visible         =   0   'False
-         Width           =   1095
+         Width           =   1335
       End
       Begin VB.CommandButton cmdOpenBitmap 
          Caption         =   "Open Bitmap"
          Height          =   615
-         Left            =   1320
-         Picture         =   "frmAdvancedTile.frx":0004
+         Left            =   1440
+         Picture         =   "frmAdvancedTile.frx":030E
          Style           =   1  'Graphical
          TabIndex        =   11
          Top             =   2760
          Visible         =   0   'False
-         Width           =   1095
+         Width           =   1215
       End
       Begin VB.CommandButton cmdSaveTIS 
          Caption         =   "Save Tileset"
          Height          =   495
          Left            =   120
-         Picture         =   "frmAdvancedTile.frx":0436
+         Picture         =   "frmAdvancedTile.frx":0740
          Style           =   1  'Graphical
          TabIndex        =   9
          Top             =   1920
          Visible         =   0   'False
-         Width           =   1095
+         Width           =   1215
       End
       Begin VB.CommandButton CmdInsert 
          Caption         =   "Insert Tile At Tile"
          Height          =   615
-         Left            =   1320
+         Left            =   1440
          Style           =   1  'Graphical
          TabIndex        =   8
          Top             =   3480
          Visible         =   0   'False
-         Width           =   1095
+         Width           =   1215
       End
       Begin VB.CommandButton cmdOpenTile 
          Caption         =   "Open Tile"
          Height          =   615
          Left            =   120
-         Picture         =   "frmAdvancedTile.frx":0868
+         Picture         =   "frmAdvancedTile.frx":0B72
          Style           =   1  'Graphical
          TabIndex        =   7
          Top             =   2760
          Visible         =   0   'False
-         Width           =   1095
+         Width           =   1215
       End
       Begin VB.CommandButton cmdSaveTile 
          Caption         =   "Save Tile"
          Height          =   495
-         Left            =   1320
-         Picture         =   "frmAdvancedTile.frx":0C9A
+         Left            =   1440
+         Picture         =   "frmAdvancedTile.frx":0FA4
          Style           =   1  'Graphical
          TabIndex        =   6
          Top             =   1920
          Visible         =   0   'False
-         Width           =   1095
+         Width           =   1215
       End
       Begin VB.CommandButton cmdSaveBitmap 
          Caption         =   "Save Bitmap"
          Height          =   495
-         Left            =   1320
-         Picture         =   "frmAdvancedTile.frx":10CC
+         Left            =   1440
+         Picture         =   "frmAdvancedTile.frx":13D6
          Style           =   1  'Graphical
          TabIndex        =   5
          Top             =   1320
          Visible         =   0   'False
-         Width           =   1095
+         Width           =   1215
       End
       Begin VB.PictureBox picCurrentTile 
          AutoRedraw      =   -1  'True
@@ -145,19 +155,19 @@ Begin VB.Form frmAdvancedTile
       End
       Begin VB.ComboBox cboTileBox 
          Height          =   315
-         ItemData        =   "frmAdvancedTile.frx":14FE
+         ItemData        =   "frmAdvancedTile.frx":1808
          Left            =   1320
-         List            =   "frmAdvancedTile.frx":1500
+         List            =   "frmAdvancedTile.frx":180A
          TabIndex        =   3
          Text            =   "Tile List"
          Top             =   840
          Visible         =   0   'False
-         Width           =   1095
+         Width           =   1335
       End
       Begin VB.CommandButton cmdOpenTIS 
          Height          =   375
          Left            =   120
-         Picture         =   "frmAdvancedTile.frx":1502
+         Picture         =   "frmAdvancedTile.frx":180C
          Style           =   1  'Graphical
          TabIndex        =   1
          Top             =   240
@@ -183,6 +193,7 @@ Dim TISsize As Long
 Public TileCount As Long
 Dim Number As Long
 Public BMPLocation As String
+Dim counter As Long
 
 Dim LocationLocationLocation As String
 Dim blnzero As Boolean
@@ -198,11 +209,13 @@ Public InsertTile As Long
 
 Private Declare Function BlockInput Lib "USER32.DLL" (ByVal fBlockIt As Long) As Long
 
+
 Option Explicit
 
 
 Private Sub cboTileBox_Click()
 Number = cboTileBox.ListIndex + 1
+cboTileListSet.ListIndex = cboTileBox.ListIndex
 
 picCurrentTile.Picture = LoadPicture(App.Path & "\blank.bmp")
 
@@ -501,17 +514,35 @@ MsgBox "DONE"
 
 End Sub
 
+Private Sub cmdNewTile_Click()
+picOpenedTile.Picture = LoadPicture(App.Path & "\blank.bmp")
+DumpTIS
+counter = counter + 1
+cboTileBox.AddItem "Tile # " & counter - 1, counter - 1
+cboTileListSet.AddItem "Tile # " & counter - 1, counter - 1
+cboTileListSet.ListIndex = counter - 1
+CmdInsert_Click
+End Sub
+
 Private Sub cmdOpenBitmap_Click()
+Dim NumberTizemp As Long
+Dim StrTizemp As String
+StrTizemp = cboTileListSet.Text
+
+NumberTizemp = cboTileBox.ListIndex
+
+
+
 
 On Error Resume Next
     With cdgDialog
         .CancelError = True
         .Filter = "Bitmaps (.bmp);JPEGs (.jpg)"
-        .Filename = "*.bmp;*.jpg;*.jpeg"
+        .FileName = NumberTizemp & ".bmp"
         .ShowOpen
         If Err.Number = 0 Then
-            If .Filename <> vbNullString Then
-                picOpenedTile.Picture = LoadPicture(cdgDialog.Filename)
+            If .FileName <> vbNullString Then
+                picOpenedTile.Picture = LoadPicture(cdgDialog.FileName)
             End If
         End If
     End With
@@ -520,15 +551,16 @@ End Sub
 
 Private Sub cmdOpenTIS_Click()
 
+MsgBox "This has been written in Visual Basic (6.0 no less) and as such will freeze worse than Barbarians without a fire in the Tentowns for a few minutes (1 or 2). Be patient. OR Don't use."
 On Error Resume Next
     With cdgDialog
         .CancelError = True
         .Filter = "Infinity Engine TileSets (*.tis)"
-        .Filename = "*.tis"
+        .FileName = "*.tis"
         .ShowOpen
         If Err.Number = 0 Then
-            If .Filename <> vbNullString Then
-                TISLocation = cdgDialog.Filename
+            If .FileName <> vbNullString Then
+                TISLocation = cdgDialog.FileName
             End If
         End If
     End With
@@ -542,6 +574,8 @@ cmdOpenBitmap.Visible = True
 CmdInsert.Visible = True
 cboTileListSet.Visible = True
 picOpenedTile.Visible = True
+cmdNewTile.Visible = True
+cmdBasicTraining.Visible = False
 End Sub
 
 Public Sub TIS_Open()
@@ -587,7 +621,7 @@ End Sub
 
 Public Sub TileSet()
 Dim Size As Long
-Dim counter As Long
+
 
 If blnHeader = True Then
     Size = TISsize - 24
@@ -1158,7 +1192,6 @@ i = 0
                 End If
                 If i = 64 Then
                     picCurrentTile.Refresh
-                    MsgBox "DONE"
                     Exit Sub
                 End If
 
@@ -1169,21 +1202,22 @@ i = 0
 End Sub
 
 Private Sub cmdSaveBitmap_Click()
-
+Dim temptilenumber As Long
 On Error Resume Next
     With cdgDialog
         .CancelError = True
         .Filter = "Bitmap (*.bmp)"
-        .Filename = "*.bmp"
+     temptilenumber = cboTileBox.ListIndex
+        .FileName = temptilenumber & ".bmp"
         .ShowSave
             If Err.Number = 0 Then
-            If .Filename <> vbNullString Then
+            If .FileName <> vbNullString Then
             End If
         End If
 
     End With
     BlockInput True
-SavePicture picCurrentTile.Image, cdgDialog.Filename
+SavePicture picCurrentTile.Image, cdgDialog.FileName
     BlockInput False
 
 MsgBox "Done Saving Bitmap"
@@ -1220,26 +1254,27 @@ Next
 
 Call ReallyRitePallette
     BlockInput False
+Dim temptilenumber As Long
 On Error Resume Next
     With cdgDialog
         .CancelError = True
         .Filter = "Infinity Engine Tiles (*.IEt)"
-        .Filename = "*.IEt"
+     temptilenumber = cboTileBox.ListIndex
+        .FileName = temptilenumber & ".IEt"
         .ShowSave
             If Err.Number = 0 Then
-            If .Filename <> vbNullString Then
+            If .FileName <> vbNullString Then
             End If
         End If
 
     End With
     BlockInput True
 
-LocationLocationLocation = cdgDialog.Filename
+LocationLocationLocation = cdgDialog.FileName
 Call WriteTile
     BlockInput False
 
-MsgBox "DONE"
-
+MsgBox "Done Writing Tile File.  Hehe.  That Rhymes."
 End Sub
 
 Private Sub WriteTile()
@@ -1540,10 +1575,10 @@ Dim temp As String
 
 Open LocationLocationLocation For Binary As #1
 
-Dim dump As Long
+Dim Dump As Long
 countZ = 1024 + 1
-For dump = 1 To 1024
-    Put #1, dump, FileDump(dump - 1)
+For Dump = 1 To 1024
+    Put #1, Dump, FileDump(Dump - 1)
 Next
 
 For count = 0 To 4095
@@ -5187,11 +5222,11 @@ On Error Resume Next
     With cdgDialog
         .CancelError = True
         .Filter = "Infinity Engine tiles (*.IEt)"
-        .Filename = "*.IEt"
+        .FileName = "*.IEt"
         .ShowOpen
         If Err.Number = 0 Then
-            If .Filename <> vbNullString Then
-                BMPLocation = cdgDialog.Filename
+            If .FileName <> vbNullString Then
+                BMPLocation = cdgDialog.FileName
                 picOpenedTile.Picture = LoadPicture(App.Path & "\blank.bmp")
             End If
         End If
@@ -5199,7 +5234,7 @@ On Error Resume Next
     
     BlockInput True
 Tile2_open
-    BlockInput False
+    
 
 End Sub
 
@@ -5747,6 +5782,7 @@ i = 0
                 End If
                 If i = 64 Then
                     picOpenedTile.Refresh
+                    BlockInput False
                     MsgBox "DONE"
                     Exit Sub
                 End If
@@ -6054,10 +6090,10 @@ Dim temp As String
 
 Open LocationLocationLocation For Binary As #1
 
-Dim dump As Long
+Dim Dump As Long
 countZ = 1024 + 1
-For dump = 1 To 1024
-    Put #1, dump, FileDump(dump - 1)
+For Dump = 1 To 1024
+    Put #1, Dump, FileDump(Dump - 1)
 Next
 
 For count = 0 To 4095
@@ -6082,8 +6118,8 @@ Next
 Close #12
 
 InsertTile = cboTileListSet.ListIndex
-Offset = InsertTile * 5120
-If blnHeader = True Then Offset = Offset + 25
+Offset = InsertTile * 5120 + 1
+If blnHeader = True Then Offset = Offset + 24
 
 Dim count As Long
 I_Am_The_Looping_Variable = 0
@@ -6095,24 +6131,28 @@ Next
 End Sub
 
 Private Sub cmdSaveTIS_Click()
+MsgBox "Once again, this is -patchy- -VB- code. This will go slow and sluggish.  No Improved Haste, no hyperdrive, no time stop (oh please, God, no!) will help this along at all."
+
 On Error Resume Next
     With cdgDialog
         .CancelError = True
-        .Filter = "Bitmap (*.bmp)"
-        .Filename = "*.bmp"
+        .Filter = "Infinity Engine TileSets (*.tis)"
+        .FileName = "*.tis"
         .ShowSave
             If Err.Number = 0 Then
-            If .Filename <> vbNullString Then
+            If .FileName <> vbNullString Then
             End If
         End If
 
     End With
+    'BlockInput True
 
 Dim This_Variable_Is_Too_Long_Named_To_Accurately_Loop As Long
 Dim HexTemp1 As Long, HexTemp2 As String, HexTemp3 As String, HexTemp4 As String
+Dim PrintThis As Integer
 
-Open cdgDialog.Filename For Binary As #15
-If blnHeader = False Then
+Open cdgDialog.FileName For Binary As #15
+    
     Put #15, 1, 84
     Put #15, 2, 73
     Put #15, 3, 83
@@ -6127,25 +6167,33 @@ If blnHeader = False Then
     HexTemp1 = TISsize / 5120
     HexTemp2 = Hex(HexTemp1)
     If Len(HexTemp2) = 1 Then
-        Put #15, 9, 0
-        Print #15, 10, HexTemp2
+        PrintThis = CDec("&H" & HexTemp2)
+        Put #15, 9, PrintThis
+        Put #15, 10, 0
         Put #15, 11, 0
         Put #15, 12, 0
     ElseIf Len(HexTemp2) = 2 Then
-        Print #15, 9, HexTemp2
+        PrintThis = CDec("&H" & HexTemp2)
+        Put #15, 9, PrintThis
+        Put #15, 10, 0
         Put #15, 11, 0
         Put #15, 12, 0
     ElseIf Len(HexTemp2) = 3 Then
         HexTemp3 = Left(HexTemp2, 1)
         HexTemp4 = Right(HexTemp2, 2)
-        Print #15, 9, HexTemp4
-        Print #15, 11, HexTemp3
+        PrintThis = CDec("&H" & HexTemp4)
+        Put #15, 9, PrintThis
+        PrintThis = CDec("&H" & HexTemp3)
+        Put #15, 10, PrintThis
+        Put #15, 11, 0
         Put #15, 12, 0
     ElseIf Len(HexTemp2) = 4 Then
         HexTemp3 = Left(HexTemp2, 2)
         HexTemp4 = Right(HexTemp2, 2)
-        Print #15, 9, HexTemp4
-        Print #15, 11, HexTemp3
+        Put #15, 9, CDec("&H" & HexTemp4)
+        Put #15, 10, CDec("&H" & HexTemp3)
+        Put #15, 11, 0
+        Put #15, 12, 0
     End If
 'Puts string of hex into.....fuck ----------- damned LITTLE-ENDIAN... there!
 
@@ -6165,7 +6213,39 @@ If blnHeader = False Then
     Put #15, 24, 0
 'adds tile dimentions
 
+If blnHeader = True Then
     For This_Variable_Is_Too_Long_Named_To_Accurately_Loop = 1 To TISsize
-        Put #15, This_Variable_Is_Too_Long_Named_To_Accurately_Loop, TIS(This_Variable_Is_Too_Long_Named_To_Accurately_Loop - 1)
+        Put #15, (This_Variable_Is_Too_Long_Named_To_Accurately_Loop + 24), TIS(This_Variable_Is_Too_Long_Named_To_Accurately_Loop + 24)
     Next
+Else
+    For This_Variable_Is_Too_Long_Named_To_Accurately_Loop = 1 To TISsize
+        Put #15, (This_Variable_Is_Too_Long_Named_To_Accurately_Loop + 24), TIS(This_Variable_Is_Too_Long_Named_To_Accurately_Loop)
+    Next
+End If
+
+
+Close #15
+    'BlockInput False
+
+MsgBox "Dood. It is Done."
+End Sub
+
+Private Sub DumpTIS()
+Dim TISSizeTemp As Long
+TISSizeTemp = TISsize
+TISsize = TISsize + 5120
+ReDim Dump(TISsize)
+Dim This_B_Another_Long_Arse_Looping_Variable As Long
+Dim Loopity_Loopity_Loop As Long
+
+For This_B_Another_Long_Arse_Looping_Variable = 1 To TISSizeTemp
+    Dump(This_B_Another_Long_Arse_Looping_Variable) = TIS(This_B_Another_Long_Arse_Looping_Variable)
+Next
+
+ReDim TIS(TISsize)
+
+For Loopity_Loopity_Loop = 1 To TISSizeTemp
+    TIS(Loopity_Loopity_Loop) = Dump(Loopity_Loopity_Loop)
+Next
+
 End Sub
